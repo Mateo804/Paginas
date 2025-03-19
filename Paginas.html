@@ -10,49 +10,97 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
+
         header {
             text-align: center;
             padding: 20px;
             background-color: #333;
             color: white;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 30px;
         }
+
         h1 {
             font-size: 2.5em;
         }
+
         h2 {
             font-size: 1.5em;
             margin-top: 20px;
         }
+
         main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
             padding: 20px;
         }
+
         section {
             margin-bottom: 30px;
+            width: 100%;
         }
+
         .link-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(5, 1fr); /* Las primeras 5 imágenes en una sola fila */
             gap: 20px;
             list-style-type: none;
             padding: 0;
+            justify-items: center;
+            margin-bottom: 30px;
         }
+
+        .link-list.second, .link-list.third {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Resto en una sola columna */
+        }
+
         .link-item {
-            background-color: white;
-            padding: 20px;
+            background-color: #f0f0f0; /* Color de fondo */
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 100%;
+            max-width: 200px; /* Tamaño de imagen más pequeño */
             transition: transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
         .link-item:hover {
             transform: scale(1.05);
+            background-color: #e0e0e0; /* Cambio de fondo al hacer hover */
         }
+
+        .link-item a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
         .link-item img {
-            max-width: 100%;
+            max-width: 70%; /* Más pequeñas las imágenes */
             height: auto;
             border-radius: 5px;
+            margin-bottom: 10px;
+            transition: opacity 0.2s ease;
         }
+
+        .link-item img:hover {
+            opacity: 0.8; /* Efecto de opacidad al pasar el mouse */
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -66,88 +114,94 @@
 </head>
 <body>
 
-    <header>
-        <h1>Enlaces Aleatorios a Páginas Externas</h1>
-        <p>Haz clic en los enlaces de abajo para visitar sitios interesantes.</p>
-    </header>
+<header>
+    <h1>Enlaces Aleatorios a Páginas Externas</h1>
+    <p>Haz clic en las imágenes de abajo para visitar sitios interesantes.</p>
+</header>
 
-    <main>
-        <section>
-            <h2>Enlaces de Sitios Populares</h2>
-            <ul class="link-list">
-                <li class="link-item">
-                    <a href="https://www.wikipedia.org" target="_blank">
-                        <img src="C:\Users\migue\Downloads\Wiki.png" alt="Wikipedia">
-                        <h3>Wikipedia</h3>
-                    </a>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.youtube.com/watch?v=qPExX6Pngl0" target="_blank">
-                        <img src="C:\Users\migue\Downloads\You.png" alt="YouTube">
-                        <h3>Video de YouTube</h3>
-                    </a>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.reddit.com" target="_blank">
-                        <img src="C:\Users\migue\Downloads\Re.png" alt="Reddit">
-                        <h3>Reddit</h3>
-                    </a>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.twitter.com" target="_blank">
-                        <img src="C:\Users\migue\Downloads\X.png" alt="Twitter">
-                        <h3>Twitter</h3>
-                    </a>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.github.com" target="_blank">
-                        <img src="C:\Users\migue\Downloads\Git.png" alt="GitHub">
-                        <h3>GitHub</h3>
-                    </a>
-                </li>
-            </ul>
-        </section>
+<main>
+    <section>
+        <h2>Enlaces de Sitios Populares</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <a href="https://www.wikipedia.org" target="_blank">
+                    <img src="C:\Users\migue\Downloads\Wiki.png" alt="Wikipedia">
+                    <h3>Wikipedia</h3>
+                </a>
+            </li>
+            <li class="link-item">
+                <a href="https://www.youtube.com/watch?v=qPExX6Pngl0" target="_blank">
+                    <img src="C:\Users\migue\Downloads\You.png" alt="YouTube">
+                    <h3>Video de YouTube</h3>
+                </a>
+            </li>
+            <li class="link-item">
+                <a href="https://www.reddit.com" target="_blank">
+                    <img src="C:\Users\migue\Downloads\Re.png" alt="Reddit">
+                    <h3>Reddit</h3>
+                </a>
+            </li>
+            <li class="link-item">
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="C:\Users\migue\Downloads\X.png" alt="Twitter">
+                    <h3>Twitter</h3>
+                </a>
+            </li>
+            <li class="link-item">
+                <a href="https://www.github.com" target="_blank">
+                    <img src="C:\Users\migue\Downloads\Git.png" alt="GitHub">
+                    <h3>GitHub</h3>
+                </a>
+            </li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>Enlaces a Redes Sociales</h2>
-            <ul class="link-list">
-                <li class="link-item">
-                    <a href="https://www.instagram.com" target="_blank">
-                        <img src="C:\Users\migue\Downloads\Ins.png" alt="Instagram">
-                        <h3>Instagram</h3>
-                    </a>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.linkedin.com" target="_blank">
-                        <img src="C:\Users\migue\Downloads\In.png" alt="LinkedIn">
-                        <h3>LinkedIn</h3>
-                    </a>
-                </li>
-            </ul>
-        </section>
+    <section>
+        <h2>Enlaces a Redes Sociales</h2>
+        <ul class="link-list second">
+            <li class="link-item">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="C:\Users\migue\Downloads\Ins.png" alt="Instagram">
+                    <h3>Instagram</h3>
+                </a>
+            </li>
+            <li class="link-item">
+                <a href="https://www.linkedin.com" target="_blank">
+                    <img src="C:\Users\migue\Downloads\In.png" alt="LinkedIn">
+                    <h3>LinkedIn</h3>
+                </a>
+            </li>
+            <li class="link-item">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="C:\Users\migue\Downloads\Fac.png" alt="Facebook">
+                    <h3>Facebook</h3>
+                </a>
+            </li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>Enlaces a Medios y Noticias</h2>
-            <ul class="link-list">
-                <li class="link-item">
-                    <a href="https://www.medium.com" target="_blank">
-                        <img src="C:\Users\migue\Downloads\Med.png" alt="Medium">
-                        <h3>Medium</h3>
-                    </a>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.bbc.com" target="_blank">
-                        <img src="C:\Users\migue\Downloads\BBC.png" alt="BBC News">
-                        <h3>BBC News</h3>
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </main>
+    <section>
+        <h2>Enlaces a Medios y Noticias</h2>
+        <ul class="link-list third">
+            <li class="link-item">
+                <a href="https://www.medium.com" target="_blank">
+                    <img src="C:\Users\migue\Downloads\Med.png" alt="Medium">
+                    <h3>Medium</h3>
+                </a>
+            </li>
+            <li class="link-item">
+                <a href="https://www.bbc.com" target="_blank">
+                    <img src="C:\Users\migue\Downloads\BBC.png" alt="BBC News">
+                    <h3>BBC News</h3>
+                </a>
+            </li>
+        </ul>
+    </section>
+</main>
 
-    <footer>
-        <p>&copy; 2025 Página de Enlaces Aleatorios</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 Página de Enlaces Aleatorios</p>
+</footer>
 
 </body>
 </html>
