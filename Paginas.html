@@ -1,210 +1,303 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enlaces Aleatorios con Imágenes</title>
-    <style>
-         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Enlaces Aleatorios</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
 
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            width: 100%;
-            max-width: 1200px;
-            margin-bottom: 30px;
-        }
+            header, nav, footer {
+                text-align: center;
+                padding: 15px;
+                background-color: #333;
+                color: white;
+                width: 100%;
+                margin-top: auto;
+            }
 
-        h1 {
-            font-size: 2.5em;
-        }
+            main {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 20px;
+                max-width: 1200px;
+                margin: 20px auto;
+                padding: 20px;
+            }
 
-        h2 {
-            font-size: 1.5em;
-            margin-top: 20px;
-        }
+            section {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
 
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-        }
+            aside {
+                background-color: #f8f8f8;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
 
-        section {
-            margin-bottom: 30px;
-            width: 100%;
-        }
+            .link-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                list-style: none;
+                padding: 0;
+                justify-content: center;
+            }
 
-        .link-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            list-style-type: none;
-            padding: 0;
-            justify-items: center;
-            margin-bottom: 30px;
-        }
+            .link-item {
+                background-color: #f0f0f0;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                width: 150px;
+                transition: transform 0.2s;
+            }
 
-        .link-list.second, .link-list.third {
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-        }
+            .link-item:hover {
+                transform: scale(1.05);
+                background-color: #e0e0e0;
+            }
 
-        .link-item {
-            background-color: #f0f0f0; 
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 100%;
-            max-width: 200px; 
-            transition: transform 0.2s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+            .link-item img {
+                max-width: 100px;
+                height: auto;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
 
-        .link-item:hover {
-            transform: scale(1.05);
-            background-color: #e0e0e0; 
-        }
+            table {
+                width: 80%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                background: white;
+            }
 
-        .link-item a {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 15px;
+                text-align: center;
+                background-color: #333;
+                color: white;
+            }
 
-        .link-item img {
-            max-width: 70%; 
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            transition: opacity 0.2s ease;
-        }
+            img {
+                max-width: 100px;
+                height: auto;
+                border-radius: 5px;
+                transition: transform 0.3s ease-in-out;
+            }
 
-        .link-item img:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
-       }
+            img:hover {
+                transform: scale(1.1);
+            }
 
-        footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    position: relative;
-    width: 100%;
-    margin-top: auto;
-        }
+            .hidden {
+                display: none;
+            }
 
-    </style>
-</head>
-<body>
+            .form-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 20px 0;
+            }
 
-<header>
-    <h1>Enlaces Aleatorios a Páginas Externas</h1>
-    <p>Haz clic en las imágenes de abajo para visitar sitios interesantes.</p>
-</header>
+            .form-container form {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+        
+            .contacto {
+                bottom: 10px;
+                display: none;
+                right: 10px;
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
 
-<main>
-    <section>
-        <h2>Enlaces de Sitios Populares</h2>
-        <ul class="link-list">
-            <li class="link-item">
-                <a href="https://www.wikipedia.org" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/640px-Wikipedia-logo-v2.svg.png" alt="Wikipedia">
-                    <h3>Wikipedia</h3>
-                </a>
-            </li>
-            <li class="link-item">
-                <a href="https://www.youtube.com/watch?v=qPExX6Pngl0" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube">
-                    <h3>Video de YouTube</h3>
-                </a>
-            </li>
-            <li class="link-item">
-                <a href="https://www.reddit.com" target="_blank">
-                    <img src="https://yt3.googleusercontent.com/ZBnkDCcneFV2uCrAOIzTCN4ItYEMoq6LFLs36qbJ0q6pPkQh1YVusaIsx5Hqn8n5BpYIhlg1Tg=s900-c-k-c0x00ffffff-no-rj" alt="Reddit">
-                    <h3>Reddit</h3>
-                </a>
-            </li>
-            <li class="link-item">
-                <a href="https://www.twitter.com" target="_blank">
-                    <img src="https://img.freepik.com/vector-gratis/nuevo-diseno-icono-x-logotipo-twitter-2023_1017-45418.jpg" alt="Twitter">
-                    <h3>Twitter</h3>
-                </a>
-            </li>
-            <li class="link-item">
-                <a href="https://www.github.com" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/1200px-GitHub_Invertocat_Logo.svg.png" alt="GitHub">
-                    <h3>GitHub</h3>
-                </a>
-            </li>
-        </ul>
-    </section>
+            .contacto img {
+                width: 20px;
+                height: 20px;
+            }
 
-    <section>
-        <h2>Enlaces a Redes Sociales</h2>
-        <ul class="link-list second">
-            <li class="link-item">
-                <a href="https://www.instagram.com" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram">
-                    <h3>Instagram</h3>
-                </a>
-            </li>
-            <li class="link-item">
-                <a href="https://www.linkedin.com" target="_blank">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlh2DiY-UY_24sTF_1-yecTQI275oFKmBKxg&s" alt="LinkedIn">
-                    <h3>LinkedIn</h3>
-                </a>
-            </li>
-            <li class="link-item">
-                <a href="https://www.facebook.com" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png" alt="Facebook">
-                    <h3>Facebook</h3>
-                </a>
-            </li>
-        </ul>
-    </section>
+            .contacto span {
+                font-size: 14px;
+                color: #333;
+            }
 
-    <section>
-        <h2>Enlaces a Medios y Noticias</h2>
-        <ul class="link-list third">
-            <li class="link-item">
-                <a href="https://www.medium.com" target="_blank">
-                    <img src="https://logowik.com/content/uploads/images/medium4864.jpg" alt="Medium">
-                    <h3>Medium</h3>
-                </a>
-            </li>
-            <li class="link-item">
-                <a href="https://www.bbc.com" target="_blank">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2up_fL_xSM-da_I-bWjaaH_atCaRdKoa0Uw&s" alt="BBC News">
-                    <h3>BBC News</h3>
-                </a>
-            </li>
-        </ul>
-    </section>
-</main>
+        </style>
+    </head>
 
-<footer>
-    <p>&copy; 2025 Página de Enlaces Aleatorios</p>
-    <p> Mateo Martinez </p>
-</footer>
+    <body>
+        <header>
+            <h1>Enlaces Aleatorios a Páginas Externas</h1>
+        </header>
+    
+        <nav>
+            <p>
+                Menú de Navegación | 
+                <a href="#contacto" onclick="toggleSection('contacto')">Contacto</a> | 
+                <a href="#form1" onclick="toggleForm('form1')">Formulario 1</a> | 
+                <a href="#form2" onclick="toggleForm('form2')">Formulario 2</a>
+            </p>
+        </nav>
+  
+        <main>
+            <section>
+                <h2>Enlaces Populares</h2>
+                <ul class="link-list">
+                    <li class="link-item">
+                        <a href="https://www.wikipedia.org" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/640px-Wikipedia-logo-v2.svg.png" alt="Wikipedia">
+                            <h3>Wikipedia</h3>
+                        </a>
+                    </li>
+                    <li class="link-item">
+                        <a href="https://www.youtube.com" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube">
+                            <h3>YouTube</h3>
+                        </a>
+                    </li>
+                    <li class="link-item">
+                        <a href="https://www.reddit.com" target="_blank">
+                            <img src="https://yt3.googleusercontent.com/ZBnkDCcneFV2uCrAOIzTCN4ItYEMoq6LFLs36qbJ0q6pPkQh1YVusaIsx5Hqn8n5BpYIhlg1Tg=s900-c-k-c0x00ffffff-no-rj" alt="Reddit">
+                            <h3>Reddit</h3>
+                        </a>
+                    </li>
+                    <li class="link-item">
+                        <a href="https://www.twitter.com" target="_blank">
+                            <img src="https://img.freepik.com/vector-gratis/nuevo-diseno-icono-x-logotipo-twitter-2023_1017-45418.jpg" alt="Twitter">
+                            <h3>Twitter</h3>
+                        </a>
+                    </li>
+                    <li class="link-item">
+                        <a href="https://www.github.com" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/1200px-GitHub_Invertocat_Logo.svg.png" alt="GitHub">
+                            <h3>GitHub</h3>
+                        </a>
+                    </li>
+                </ul>
+            </section>
 
-</body>
+            <aside>
+                <h2>Enlaces a Redes Sociales</h2>
+                <ul class="link-list second">
+                    <li class="link-item">
+                        <a href="https://www.instagram.com" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram">
+                            <h3>Instagram</h3>
+                        </a>
+                    </li>
+                    <li class="link-item">
+                        <a href="https://www.linkedin.com" target="_blank">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlh2DiY-UY_24sTF_1-yecTQI275oFKmBKxg&s" alt="LinkedIn">
+                            <h3>LinkedIn</h3>
+                        </a>
+                    </li>
+                    <li class="link-item">
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png" alt="Facebook">
+                            <h3>Facebook</h3>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <section>
+                <h2>Noticias y Blogs</h2>
+                <ul class="link-list">
+                    <li class="link-item">
+                        <a href="https://www.medium.com" target="_blank">
+                            <img src="https://logowik.com/content/uploads/images/medium4864.jpg" alt="Medium">
+                            <h3>Medium</h3>
+                        </a>
+                    </li>
+                    <li class="link-item">
+                        <a href="https://www.bbc.com" target="_blank">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2up_fL_xSM-da_I-bWjaaH_atCaRdKoa0Uw&s" alt="BBC News">
+                            <h3>BBC News</h3>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <div class="form-container">
+                <section id="form1" class="hidden">
+                    <h2>Formulario 1</h2>
+                    <form>
+                        <label for="nombre1">Nombre:</label>
+                        <input type="text" id="nombre1" name="nombre1"><br>
+                        <label for="email1">Email:</label>
+                        <input type="email" id="email1" name="email1"><br>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </section>
+
+                <section id="form2" class="hidden">
+                    <h2>Formulario 2</h2>
+                    <form>
+                        <label for="nombre2">Nombre:</label>
+                        <input type="text" id="nombre2" name="nombre2"><br>
+                        <label for="email2">Email:</label>
+                        <input type="email" id="email2" name="email2"><br>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </section>
+ 
+                <section id="contacto" class="hidden">
+                    <h2>Contacto</h2>
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                        <span>+57 3146755706</span>
+                    </div>
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Correo">
+                        <span>miguelmateomartinezmercado@gmail.com</span>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+        <footer>
+            <p>&copy; 2025 Página de Enlaces Aleatorios</p>
+            <p>Mateo Martinez</p>
+        </footer>
+
+        <script>
+            function toggleForm(formId) {
+                document.getElementById('contacto').classList.add('hidden')
+                document.getElementById('form1').classList.add('hidden');
+                document.getElementById('form2').classList.add('hidden');
+                document.getElementById(formId).classList.toggle('hidden');
+            }
+
+            function toggleSection(sectionId) {
+                let sections = ['contacto', 'form1', 'form2'];
+                sections.forEach(id => {
+                    document.getElementById(id).classList.toggle('hidden', id !== sectionId);
+                });
+            }
+
+        </script>
+
+    </body>
 </html>
