@@ -78,22 +78,7 @@
                 margin-bottom: 10px;
                 border-radius: 5px;
             }
-
-            table {
-                width: 80%;
-                border-collapse: collapse;
-                margin: 20px 0;
-                background: white;
-            }
-
-            th, td {
-                border: 1px solid #ddd;
-                padding: 15px;
-                text-align: center;
-                background-color: #333;
-                color: white;
-            }
-
+            
             img {
                 max-width: 100px;
                 height: auto;
@@ -125,25 +110,6 @@
                 text-align: center;
             }
         
-            .contacto {
-                bottom: 10px;
-                display: none;
-                right: 10px;
-                flex-direction: column;
-                gap: 8px;
-                align-items: center;
-            }
-
-            .contacto img {
-                width: 20px;
-                height: 20px;
-            }
-
-            .contacto span {
-                font-size: 14px;
-                color: #333;
-            }
-
         </style>
     </head>
 
@@ -156,8 +122,8 @@
             <p>
                 Menú de Navegación | 
                 <a href="#contacto" onclick="toggleSection('contacto')">Contacto</a> | 
-                <a href="#form1" onclick="toggleForm('form1')">Formulario 1</a> | 
-                <a href="#form2" onclick="toggleForm('form2')">Formulario 2</a>
+                <a href="#form1" onclick="toggleForm('form1')">¿ Satisfecho ?</a> | 
+                <a href="#form2" onclick="toggleForm('form2')">Recomendaciones</a>
             </p>
         </nav>
   
@@ -241,41 +207,58 @@
             </section>
 
             <div class="form-container">
-                <section id="form1" class="hidden">
-                    <h2>Formulario 1</h2>
-                    <form>
-                        <label for="nombre1">Nombre:</label>
-                        <input type="text" id="nombre1" name="nombre1"><br>
-                        <label for="email1">Email:</label>
-                        <input type="email" id="email1" name="email1"><br>
-                        <button type="submit">Enviar</button>
-                    </form>
-                </section>
-
-                <section id="form2" class="hidden">
-                    <h2>Formulario 2</h2>
-                    <form>
-                        <label for="nombre2">Nombre:</label>
-                        <input type="text" id="nombre2" name="nombre2"><br>
-                        <label for="email2">Email:</label>
-                        <input type="email" id="email2" name="email2"><br>
-                        <button type="submit">Enviar</button>
-                    </form>
-                </section>
- 
-                <section id="contacto" class="hidden">
-                    <h2>Contacto</h2>
-                    <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                        <span>+57 3146755706</span>
-                    </div>
-                    <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Correo">
-                        <span>miguelmateomartinezmercado@gmail.com</span>
-                    </div>
-                </section>
-            </div>
-
+                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                    <tr>
+                        <td style="padding: 20px; vertical-align: top; width: 100%;">
+                            <section id="form1" class="hidden">
+                                <h2>¿ Satisfecho ?</h2>
+                                <form>
+                                    <label for="satisfaction">¿Cómo calificaría su experiencia en esta página?</label><br><br>
+                                    <select id="satisfaction" name="satisfaction">
+                                        <option value="excelente">Excelente</option>
+                                        <option value="buena">Buena</option>
+                                        <option value="regular">Regular</option>
+                                        <option value="mala">Mala</option>
+                                    </select><br><br>
+                                    <button type="submit">Enviar Encuesta</button>
+                                </form>
+                            </section>
+                        </td>
+            
+                        <td style="padding: 20px; vertical-align: top; width: 100%;">
+                            <section id="form2" class="hidden">
+                                <h2>Recomendaciones</h2>
+                                <form>
+                                    <label for="improve">¿Qué podemos mejorar en la página?</label><br>
+                                    <textarea id="improve" name="improve" rows="2" cols="40" placeholder="Escriba sus sugerencias aquí..."></textarea><br><br>
+                            
+                                    <label for="new_features">¿Qué características nuevas le gustaría ver?</label><br>
+                                    <textarea id="new_features" name="new_features" rows="2" cols="40" placeholder="Comparta sus ideas..."></textarea><br><br>
+                            
+                                    <button type="submit">Enviar Recomendaciones</button>
+                                </form>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 20px; text-align: center;">
+                            <section id="contacto" class="hidden">
+                                <h2>Contacto</h2>
+                                <div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="15"><br>
+                                    <span>+57 3146755706</span>
+                                    <br>
+                                </div>
+                                <div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Correo" width="15">
+                                    <span>miguelmateomartinezmercado@gmail.com</span><br><br>
+                                </div>
+                            </section>
+                        </td>
+                    </tr>
+                </table>
+            </div>            
+            
         </main>
         <footer>
             <p>&copy; 2025 Página de Enlaces Aleatorios</p>
